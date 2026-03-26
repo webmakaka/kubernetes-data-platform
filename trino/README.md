@@ -34,11 +34,13 @@ data_engineer=# \dt inventory.*
 ## Install Minio on Kubernetes
 
 ```bash
-# helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo add minio https://charts.min.io/
 $ helm repo update
-# helm upgrade --install minio -n minio -f deployment/minio/minio-values.yaml bitnami/minio --create-namespace --debug --version 14.6.0
+```
 
+<br/>
+
+```
 # helm uninstall minio -n minio
 $ helm upgrade --install minio -n minio -f deployment/minio/minio-values.yaml minio/minio --create-namespace --debug --version 5.4.0
 $ kubectl -n minio get po
@@ -69,16 +71,15 @@ $ kubectl run minio-client --image=minio/minio -it --rm --restart=Never --comman
 ## Install Hive Metastore
 
 ### hive-metastore-postgresql
+
+https://artifacthub.io/packages/helm/bitnami/postgresql
+
 ```bash
-# helm repo add bitnami https://charts.bitnami.com/bitnami
-# helm repo update
-# helm upgrade --install metastore-db -n metastore -f deployment/hive/hive-metastore-postgres-values.yaml bitnami/postgresql --create-namespace --debug --version 15.4.2
 $ helm upgrade --install metastore-db -n metastore -f deployment/hive/hive-metastore-postgres-values.yaml helm-chart/postgresql-18.5.14/postgresql --create-namespace --debug --version 15.4.2
 ```
 ### Hive metastore
+
 ```bash
-# docker pull rtdl/hive-metastore:3.1.2
-# kind load docker-image rtdl/hive-metastore:3.1.2 --name dev
 $ helm upgrade --install hive-metastore -n metastore -f deployment/hive/hive-metastore-values.yaml ../charts/hive-metastore --create-namespace --debug
 ```
 
@@ -89,6 +90,8 @@ $ helm upgrade --install trino -n trino -f deployment/trino/trino-values.yaml tr
 ```
 
 <br/>
+
+**Test**
 
 ```bash
 $ kubectl -n trino get po
