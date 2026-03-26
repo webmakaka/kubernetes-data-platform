@@ -1,12 +1,46 @@
-auth:
-  rootUser: "admin"
-  rootPassword: "password"
+mode: standalone
+replicas: 1
+
+rootUser: "admin"
+rootPassword: "password"
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+
+persistence:
+  size: 5Gi
+
 ingress:
   enabled: true
   ingressClassName: "nginx"
-  hostname: minio.lakehouse.local
+  hosts:
+    - minio.lakehouse.local
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 1024m
-defaultBuckets: "lakehouse, airflow, risingwave, kafka"
-persistence:
-  size: 50Gi
+
+consoleIngress:
+  enabled: true
+  ingressClassName: "nginx"
+  hosts:
+    - console.minio.lakehouse.local
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
+
+defaultBuckets:
+  - name: lakehouse
+    policy: none
+    purge: false
+  - name: airflow
+    policy: none
+    purge: false
+  - name: risingwave
+    policy: none
+    purge: false
+  - name: kafka
+    policy: none
+    purge: false
