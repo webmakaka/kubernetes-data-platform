@@ -1,4 +1,4 @@
-# Data Architecture
+# Kubernetes Data Platform
 
 [Original src](https://github.com/viethqb/data-platform-notes)
 
@@ -7,33 +7,35 @@ https://viet1846.medium.com/
 
 <br/>
 
-### [Kubernetes Data Platform][Part 1]: Introduction
+### [Part 1]: Introduction
 
-### [Kubernetes Data Platform][Part 2.1]: Highly available Kubernetes cluster with kubeadm
+### [Part 2.1]: Highly available Kubernetes cluster with kubeadm
 
-### [Kubernetes Data Platform][Part 2.2]: Creating highly available Kubernetes cluster with k0s
+### [Part 2.2]: Creating highly available Kubernetes cluster with k0s
 
-### [Kubernetes Data Platform][Part 2.3]: Creating highly available Kubernetes cluster with rke2
+### [Part 2.3]: Creating highly available Kubernetes cluster with rke2
 
-### [Kubernetes Data Platform][Part 2.4]: Creating highly available Kubernetes cluster with k3s
+### [Part 2.4]: Creating highly available Kubernetes cluster with k3s
 
-### [Kubernetes Data Platform][Part 3][Main Components]: Install Distributed MinIO Cluster
+### [Part 3][Main Components]: Install Distributed MinIO Cluster
 
-### [Kubernetes Data Platform][Part 4][Main Components]: Install Hive Metastore, Trino on Kubernetes
+### [Part 4][Main Components]: Install Hive Metastore, Trino on Kubernetes
 
-### [Kubernetes Data Platform][Part 5.1][Main Components]: Apache Spark with Kubernetes Spark Operator
+### [Part 5.1][Main Components]: Apache Spark with Kubernetes Spark Operator
 
-### [Kubernetes Data Platform][Part 5.2][Main Components]: Apache Spark with Spark Connect Server
+### [Part 5.2][Main Components]: Apache Spark with Spark Connect Server
 
-### [Kubernetes Data Platform][Part 6][Main Components]: Data Orchestrate with Apache Airflow
+### [Part 6][Main Components]: Data Orchestrate with Apache Airflow
 
-### [Kubernetes Data Platform][Part 7][Main Components]: Data warehouse with Apache Doris
+### [Part 7][Main Components]: Data warehouse with Apache Doris
 
-### [Kubernetes Data Platform][Part 8][Main Components]: Data warehouse with StarRocks
+### [Part 8][Main Components]: Data warehouse with StarRocks
 
-### [Kubernetes Data Platform][Part 9][Real-time Components]: Apache Kafka, Kafka connect and Debezium
+### [Part 9][Real-time Components]: Apache Kafka, Kafka connect and Debezium
 
 <br/>
+
+# Data Architecture
 
 ![Architecture](./architecture.png)
 
