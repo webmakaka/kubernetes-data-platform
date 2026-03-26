@@ -30,3 +30,34 @@
 |    FastAPI      |               |                 Modern web framework for building RESTful APIs in Python.                  | Not started |
 |    Jenkins      |               |                                  Open-source CI/CD server                                  | Not started |
 |    Argo CD      |               |         Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.          | Not started |
+
+
+https://viet1846.medium.com/
+
+<br/>
+
+### [Kubernetes Data Platform][Part 1]: Introduction
+
+### [Kubernetes Data Platform][Part 2.1]: Highly available Kubernetes cluster with kubeadm
+
+### [Kubernetes Data Platform][Part 2.2]: Creating highly available Kubernetes cluster with k0s
+
+### [Kubernetes Data Platform][Part 2.3]: Creating highly available Kubernetes cluster with rke2
+
+### [Kubernetes Data Platform][Part 2.4]: Creating highly available Kubernetes cluster with k3s
+
+### [Kubernetes Data Platform][Part 3][Main Components]: Install Distributed MinIO Cluster
+
+### [Kubernetes Data Platform][Part 4][Main Components]: Install Hive Metastore, Trino on Kubernetes
+
+### [Kubernetes Data Platform][Part 5.1][Main Components]: Apache Spark with Kubernetes Spark Operator
+
+### [Kubernetes Data Platform][Part 5.2][Main Components]: Apache Spark with Spark Connect Server
+
+### [Kubernetes Data Platform][Part 6][Main Components]: Data Orchestrate with Apache Airflow
+
+### [Kubernetes Data Platform][Part 7][Main Components]: Data warehouse with Apache Doris
+
+### [Kubernetes Data Platform][Part 8][Main Components]: Data warehouse with StarRocks
+
+### [Kubernetes Data Platform][Part 9][Real-time Components]: Apache Kafka, Kafka connect and Debezium
