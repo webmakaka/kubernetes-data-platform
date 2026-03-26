@@ -31,7 +31,7 @@ consoleIngress:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 1024m
 
-defaultBuckets:
+buckets:
   - name: lakehouse
     policy: none
     purge: false
