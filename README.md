@@ -3,11 +3,11 @@
 [Original src](https://github.com/viethqb/data-platform-notes)
 
 
-https://viet1846.medium.com/
+[Articles on Medium](https://viet1846.medium.com/list/kubernetes-data-platform-45c145770b04?source=user_lists---------0-------45c145770b04------dfeb01b4d84c----------------------)
 
 <br/>
 
-### [Part 1]: Introduction
+### [[Part 1]: Introduction](https://towardsdev.com/kubernetes-data-platform-part-1-introduction-765c3f51755d)
 
 ### [Part 2.1]: Highly available Kubernetes cluster with kubeadm
 
