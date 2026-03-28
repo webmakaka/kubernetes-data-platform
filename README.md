@@ -67,6 +67,13 @@
 |     Jenkins      |               |                                  Open-source CI/CD server                                  | Not started |
 |     Argo CD      |               |         Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.          | Not started |
 
+
+<br/>
+
+**Additional:**
+
+https://github.com/viethqb/data-platform-k8s-demo/tree/main
+
 <br/><br/>
 
 ---
