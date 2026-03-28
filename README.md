@@ -36,7 +36,7 @@
 
 # Data Architecture
 
-![Architecture](./architecture.png)
+![Architecture](./img/architecture.png)
 
 # Technical Stack
 
@@ -67,14 +67,12 @@
 |     Jenkins      |               |                                  Open-source CI/CD server                                  | Not started |
 |     Argo CD      |               |         Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.          | Not started |
 
-
 <br/>
 
 **Additional:**
 
 // argo
 https://github.com/viethqb/data-platform-k8s-demo/tree/main
-
 
 // trino + clickhouse
 https://github.com/viethqb/trino-on-kubernetes/

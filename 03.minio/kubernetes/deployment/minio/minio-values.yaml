@@ -1,23 +1,23 @@
 mode: standalone
 replicas: 1
 
-rootUser: "admin"
-rootPassword: "password"
+rootUser: 'admin'
+rootPassword: 'password'
 
 resources:
   requests:
-    memory: "256Mi"
-    cpu: "100m"
+    memory: '256Mi'
+    cpu: '100m'
   limits:
-    memory: "512Mi"
-    cpu: "500m"
+    memory: '512Mi'
+    cpu: '500m'
 
 persistence:
   size: 5Gi
 
 ingress:
   enabled: true
-  ingressClassName: "nginx"
+  ingressClassName: 'nginx'
   hosts:
     - minio.lakehouse.local
   annotations:
@@ -25,7 +25,7 @@ ingress:
 
 consoleIngress:
   enabled: true
-  ingressClassName: "nginx"
+  ingressClassName: 'nginx'
   hosts:
     - console.minio.lakehouse.local
   annotations:
