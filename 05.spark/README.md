@@ -1,8 +1,8 @@
-## Install Spark Operator
+## [Kubernetes Data Platform] Install Spark Operator
 
 ```bash
-helm repo add spark-operator https://kubeflow.github.io/spark-operator 
-helm upgrade --install spark-operator spark-operator/spark-operator --namespace spark-operator --set webhook.enable=true --set image.tag=v1beta2-1.4.6-3.5.0 --create-namespace --debug --version 1.3.2 
+helm repo add spark-operator https://kubeflow.github.io/spark-operator
+helm upgrade --install spark-operator spark-operator/spark-operator --namespace spark-operator --set webhook.enable=true --set image.tag=v1beta2-1.4.6-3.5.0 --create-namespace --debug --version 1.3.2
 kubectl create role spark-operator-submitter --verb=create,get --resource=sparkapplications,pods/log --namespace=spark-operator
 kubectl create rolebinding airflow-worker-spark-submitter --role=spark-operator-submitter --serviceaccount=airflow:airflow-worker --namespace=spark-operator
 ```
@@ -10,23 +10,26 @@ kubectl create rolebinding airflow-worker-spark-submitter --role=spark-operator-
 ### Test spark pi
 
 ```bash
-k apply -f jobs/spark_pi.yaml
+kubectl apply -f jobs/spark_pi.yaml
 ```
 
-### Build Base images 
+### Build Base images
+
 ```bash
 docker build -t viet1846/spark-iceberg:3.4.1 -f Dockerfile.spark-iceberg .
 ```
 
-### Build application images 
+### Build application images
+
 ```bash
-docker build -t viet1846/spark-lakehouse:v1 -f Dockerfile . 
+docker build -t viet1846/spark-lakehouse:v1 -f Dockerfile .
 ```
 
 ### Submit job
+
 ```bash
-k apply -f jobs/main_iceberg.yaml
-k -n spark-operator get po       
+kubectl apply -f jobs/main_iceberg.yaml
+kubectl -n spark-operator get po
 
 # NAME                                READY   STATUS      RESTARTS   AGE
 # pyspark-pi-driver                   0/1     Completed   0          4m
@@ -34,13 +37,21 @@ k -n spark-operator get po
 # spark-operator-7f88f7dbf-46k6c      1/1     Running     0          120m
 # spark-operator-webhook-init-p796r   0/1     Completed   0          120m
 
-k -n spark-operator logs -f spark-iceberg-driver
+kubectl -n spark-operator logs -f spark-iceberg-driver
 ```
 
 ## Using Trino query table create by Spark
 
 ```bash
-k -n trino exec -it trino-coordinator-b597bcd8c-f6vf7 trino
+kubectl -n trino exec -it trino-coordinator-b597bcd8c-f6vf7 trino
 
 trino> select * from lakehouse.raw.taxis_spark limit 10;
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, big data, golang</a>
