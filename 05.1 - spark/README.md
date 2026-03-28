@@ -29,7 +29,7 @@ docker build -t viet1846/spark-lakehouse:v1 -f Dockerfile .
 
 ```bash
 kubectl apply -f jobs/main_iceberg.yaml
-kubectl -n spark-operator get po
+kubectl -n spark-operator get pods
 
 # NAME                                READY   STATUS      RESTARTS   AGE
 # pyspark-pi-driver                   0/1     Completed   0          4m
@@ -39,6 +39,8 @@ kubectl -n spark-operator get po
 
 kubectl -n spark-operator logs -f spark-iceberg-driver
 ```
+
+<br/>
 
 ## Using Trino query table create by Spark
 
