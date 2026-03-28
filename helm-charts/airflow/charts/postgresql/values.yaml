@@ -7,7 +7,7 @@
 global:
   ## @param global.imageRegistry Global Docker image registry
   ##
-  imageRegistry: ""
+  imageRegistry: ''
   ## @param global.imagePullSecrets Global Docker registry secret names as an array
   ## e.g.
   ## imagePullSecrets:
@@ -16,7 +16,7 @@ global:
   imagePullSecrets: []
   ## @param global.storageClass Global StorageClass for Persistent Volume(s)
   ##
-  storageClass: ""
+  storageClass: ''
   postgresql:
     ## @param global.postgresql.auth.postgresPassword Password for the "postgres" admin user (overrides `auth.postgresPassword`)
     ## @param global.postgresql.auth.username Name for a custom user to create (overrides `auth.username`)
@@ -28,33 +28,33 @@ global:
     ## @param global.postgresql.auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.replicationPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
     ##
     auth:
-      postgresPassword: ""
-      username: ""
-      password: ""
-      database: ""
-      existingSecret: ""
+      postgresPassword: ''
+      username: ''
+      password: ''
+      database: ''
+      existingSecret: ''
       secretKeys:
-        adminPasswordKey: ""
-        userPasswordKey: ""
-        replicationPasswordKey: ""
+        adminPasswordKey: ''
+        userPasswordKey: ''
+        replicationPasswordKey: ''
     ## @param global.postgresql.service.ports.postgresql PostgreSQL service port (overrides `service.ports.postgresql`)
     ##
     service:
       ports:
-        postgresql: ""
+        postgresql: ''
 
 ## @section Common parameters
 ##
 
 ## @param kubeVersion Override Kubernetes version
 ##
-kubeVersion: ""
+kubeVersion: ''
 ## @param nameOverride String to partially override common.names.fullname template (will maintain the release name)
 ##
-nameOverride: ""
+nameOverride: ''
 ## @param fullnameOverride String to fully override common.names.fullname template
 ##
-fullnameOverride: ""
+fullnameOverride: ''
 ## @param clusterDomain Kubernetes Cluster Domain
 ##
 clusterDomain: cluster.local
@@ -97,9 +97,9 @@ diagnosticMode:
 ##
 image:
   registry: docker.io
-  repository: bitnami/postgresql
+  repository: bitnamilegacy/postgresql
   tag: 16.1.0-debian-11-r15
-  digest: ""
+  digest: ''
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -127,25 +127,25 @@ auth:
   enablePostgresUser: true
   ## @param auth.postgresPassword Password for the "postgres" admin user. Ignored if `auth.existingSecret` is provided
   ##
-  postgresPassword: ""
+  postgresPassword: ''
   ## @param auth.username Name for a custom user to create
   ##
-  username: ""
+  username: ''
   ## @param auth.password Password for the custom user to create. Ignored if `auth.existingSecret` is provided
   ##
-  password: ""
+  password: ''
   ## @param auth.database Name for a custom database to create
   ##
-  database: ""
+  database: ''
   ## @param auth.replicationUsername Name of the replication user
   ##
   replicationUsername: repl_user
   ## @param auth.replicationPassword Password for the replication user. Ignored if `auth.existingSecret` is provided
   ##
-  replicationPassword: ""
+  replicationPassword: ''
   ## @param auth.existingSecret Name of existing secret to use for PostgreSQL credentials. `auth.postgresPassword`, `auth.password`, and `auth.replicationPassword` will be ignored and picked up from this secret. The secret might also contains the key `ldap-password` if LDAP is enabled. `ldap.bind_password` will be ignored and picked from this secret in this case.
   ##
-  existingSecret: ""
+  existingSecret: ''
   ## @param auth.secretKeys.adminPasswordKey Name of key in existing secret to use for PostgreSQL credentials. Only used when `auth.existingSecret` is set.
   ## @param auth.secretKeys.userPasswordKey Name of key in existing secret to use for PostgreSQL credentials. Only used when `auth.existingSecret` is set.
   ## @param auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials. Only used when `auth.existingSecret` is set.
@@ -168,7 +168,7 @@ replication:
   ## @param replication.numSynchronousReplicas Number of replicas that will have synchronous replication. Note: Cannot be greater than `readReplicas.replicaCount`.
   ## ref: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
   ##
-  synchronousCommit: "off"
+  synchronousCommit: 'off'
   numSynchronousReplicas: 0
   ## @param replication.applicationName Cluster application name. Useful for advanced replication settings
   ##
@@ -192,11 +192,11 @@ audit:
   logHostname: false
   logConnections: false
   logDisconnections: false
-  pgAuditLog: ""
-  pgAuditLogCatalog: "off"
+  pgAuditLog: ''
+  pgAuditLogCatalog: 'off'
   clientMinMessages: error
-  logLinePrefix: ""
-  logTimezone: ""
+  logLinePrefix: ''
+  logTimezone: ''
 ## LDAP configuration
 ## @param ldap.enabled Enable LDAP support
 ## DEPRECATED ldap.url It will removed in a future, please use 'ldap.uri' instead
@@ -220,28 +220,28 @@ audit:
 ##
 ldap:
   enabled: false
-  server: ""
-  port: ""
-  prefix: ""
-  suffix: ""
-  basedn: ""
-  binddn: ""
-  bindpw: ""
-  searchAttribute: ""
-  searchFilter: ""
-  scheme: ""
+  server: ''
+  port: ''
+  prefix: ''
+  suffix: ''
+  basedn: ''
+  binddn: ''
+  bindpw: ''
+  searchAttribute: ''
+  searchFilter: ''
+  scheme: ''
   tls:
     enabled: false
   ## @param ldap.uri LDAP URL beginning in the form `ldap[s]://host[:port]/basedn`. If provided, all the other LDAP parameters will be ignored.
   ## Ref: https://www.postgresql.org/docs/current/auth-ldap.html
   ##
-  uri: ""
+  uri: ''
 ## @param postgresqlDataDir PostgreSQL data dir folder
 ##
 postgresqlDataDir: /bitnami/postgresql/data
 ## @param postgresqlSharedPreloadLibraries Shared preload libraries (comma-separated list)
 ##
-postgresqlSharedPreloadLibraries: "pgaudit"
+postgresqlSharedPreloadLibraries: 'pgaudit'
 ## Start PostgreSQL pod(s) without limitations on shm memory.
 ## By default docker and containerd (and possibly other container runtimes) limit `/dev/shm` to `64M`
 ## ref: https://github.com/docker-library/postgres/issues/416
@@ -256,7 +256,7 @@ shmVolume:
   ## e.g:
   ## sizeLimit: 1Gi
   ##
-  sizeLimit: ""
+  sizeLimit: ''
 ## TLS configuration
 ##
 tls:
@@ -271,21 +271,21 @@ tls:
   preferServerCiphers: true
   ## @param tls.certificatesSecret Name of an existing secret that contains the certificates
   ##
-  certificatesSecret: ""
+  certificatesSecret: ''
   ## @param tls.certFilename Certificate filename
   ##
-  certFilename: ""
+  certFilename: ''
   ## @param tls.certKeyFilename Certificate key filename
   ##
-  certKeyFilename: ""
+  certKeyFilename: ''
   ## @param tls.certCAFilename CA Certificate filename
   ## If provided, PostgreSQL will authenticate TLS/SSL clients by requesting them a certificate
   ## ref: https://www.postgresql.org/docs/9.6/auth-methods.html
   ##
-  certCAFilename: ""
+  certCAFilename: ''
   ## @param tls.crlFilename File containing a Certificate Revocation List
   ##
-  crlFilename: ""
+  crlFilename: ''
 
 ## @section PostgreSQL Primary parameters
 ##
@@ -296,7 +296,7 @@ primary:
   ## @param primary.configuration PostgreSQL Primary main configuration to be injected as ConfigMap
   ## ref: https://www.postgresql.org/docs/current/static/runtime-config.html
   ##
-  configuration: ""
+  configuration: ''
   ## @param primary.pgHbaConfiguration PostgreSQL Primary client authentication configuration
   ## ref: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
   ## e.g:#
@@ -305,29 +305,29 @@ primary:
   ##   host all all localhost trust
   ##   host mydatabase mysuser 192.168.0.0/24 md5
   ##
-  pgHbaConfiguration: ""
+  pgHbaConfiguration: ''
   ## @param primary.existingConfigmap Name of an existing ConfigMap with PostgreSQL Primary configuration
   ## NOTE: `primary.configuration` and `primary.pgHbaConfiguration` will be ignored
   ##
-  existingConfigmap: ""
+  existingConfigmap: ''
   ## @param primary.extendedConfiguration Extended PostgreSQL Primary configuration (appended to main or default configuration)
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/postgresql#allow-settings-to-be-loaded-from-files-other-than-the-default-postgresqlconf
   ##
-  extendedConfiguration: ""
+  extendedConfiguration: ''
   ## @param primary.existingExtendedConfigmap Name of an existing ConfigMap with PostgreSQL Primary extended configuration
   ## NOTE: `primary.extendedConfiguration` will be ignored
   ##
-  existingExtendedConfigmap: ""
+  existingExtendedConfigmap: ''
   ## Initdb configuration
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/postgresql#specifying-initdb-arguments
   ##
   initdb:
     ## @param primary.initdb.args PostgreSQL initdb extra arguments
     ##
-    args: ""
+    args: ''
     ## @param primary.initdb.postgresqlWalDir Specify a custom location for the PostgreSQL transaction log
     ##
-    postgresqlWalDir: ""
+    postgresqlWalDir: ''
     ## @param primary.initdb.scripts Dictionary of initdb scripts
     ## Specify dictionary of scripts to be run at first boot
     ## e.g:
@@ -340,17 +340,17 @@ primary:
     ## @param primary.initdb.scriptsConfigMap ConfigMap with scripts to be run at first boot
     ## NOTE: This will override `primary.initdb.scripts`
     ##
-    scriptsConfigMap: ""
+    scriptsConfigMap: ''
     ## @param primary.initdb.scriptsSecret Secret with scripts to be run at first boot (in case it contains sensitive information)
     ## NOTE: This can work along `primary.initdb.scripts` or `primary.initdb.scriptsConfigMap`
     ##
-    scriptsSecret: ""
+    scriptsSecret: ''
     ## @param primary.initdb.user Specify the PostgreSQL username to execute the initdb scripts
     ##
-    user: ""
+    user: ''
     ## @param primary.initdb.password Specify the PostgreSQL password to execute the initdb scripts
     ##
-    password: ""
+    password: ''
   ## Configure current cluster's primary server to be the standby server in other cluster.
   ## This will allow cross cluster replication and provide cross cluster high availability.
   ## You will need to configure pgHbaConfiguration if you want to enable this feature with local cluster replication enabled.
@@ -360,8 +360,8 @@ primary:
   ##
   standby:
     enabled: false
-    primaryHost: ""
-    primaryPort: ""
+    primaryHost: ''
+    primaryPort: ''
   ## @param primary.extraEnvVars Array with extra environment variables to add to PostgreSQL Primary nodes
   ## e.g:
   ## extraEnvVars:
@@ -371,10 +371,10 @@ primary:
   extraEnvVars: []
   ## @param primary.extraEnvVarsCM Name of existing ConfigMap containing extra env vars for PostgreSQL Primary nodes
   ##
-  extraEnvVarsCM: ""
+  extraEnvVarsCM: ''
   ## @param primary.extraEnvVarsSecret Name of existing Secret containing extra env vars for PostgreSQL Primary nodes
   ##
-  extraEnvVarsSecret: ""
+  extraEnvVarsSecret: ''
   ## @param primary.command Override default container command (useful when using custom images)
   ##
   command: []
@@ -475,9 +475,9 @@ primary:
     readOnlyRootFilesystem: false
     allowPrivilegeEscalation: false
     capabilities:
-      drop: ["ALL"]
+      drop: ['ALL']
     seccompProfile:
-      type: "RuntimeDefault"
+      type: 'RuntimeDefault'
   ## @param primary.hostAliases PostgreSQL primary pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
@@ -503,7 +503,7 @@ primary:
   ## @param primary.podAffinityPreset PostgreSQL primary pod affinity preset. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
-  podAffinityPreset: ""
+  podAffinityPreset: ''
   ## @param primary.podAntiAffinityPreset PostgreSQL primary pod anti-affinity preset. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
@@ -514,12 +514,12 @@ primary:
   nodeAffinityPreset:
     ## @param primary.nodeAffinityPreset.type PostgreSQL primary node affinity preset type. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
     ##
-    type: ""
+    type: ''
     ## @param primary.nodeAffinityPreset.key PostgreSQL primary node label key to match Ignored if `primary.affinity` is set.
     ## E.g.
     ## key: "kubernetes.io/e2e-az-name"
     ##
-    key: ""
+    key: ''
     ## @param primary.nodeAffinityPreset.values PostgreSQL primary node label values to match. Ignored if `primary.affinity` is set.
     ## E.g.
     ## values:
@@ -546,15 +546,15 @@ primary:
   topologySpreadConstraints: []
   ## @param primary.priorityClassName Priority Class to use for each pod (postgresql primary)
   ##
-  priorityClassName: ""
+  priorityClassName: ''
   ## @param primary.schedulerName Use an alternate scheduler, e.g. "stork".
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
   ##
-  schedulerName: ""
+  schedulerName: ''
   ## @param primary.terminationGracePeriodSeconds Seconds PostgreSQL primary pod needs to terminate gracefully
   ## ref: https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
   ##
-  terminationGracePeriodSeconds: ""
+  terminationGracePeriodSeconds: ''
   ## @param primary.updateStrategy.type PostgreSQL Primary statefulset strategy type
   ## @param primary.updateStrategy.rollingUpdate PostgreSQL Primary statefulset rolling update configuration parameters
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
@@ -607,12 +607,12 @@ primary:
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
     ##
     nodePorts:
-      postgresql: ""
+      postgresql: ''
     ## @param primary.service.clusterIP Static clusterIP or None for headless services
     ## e.g:
     ## clusterIP: None
     ##
-    clusterIP: ""
+    clusterIP: ''
     ## @param primary.service.annotations Annotations for PostgreSQL primary service
     ##
     annotations: {}
@@ -620,7 +620,7 @@ primary:
     ## Set the LoadBalancer service type to internal only
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
     ##
-    loadBalancerIP: ""
+    loadBalancerIP: ''
     ## @param primary.service.externalTrafficPolicy Enable client source IP preservation
     ## ref https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
     ##
@@ -660,7 +660,7 @@ primary:
     enabled: true
     ## @param primary.persistence.existingClaim Name of an existing PVC to use
     ##
-    existingClaim: ""
+    existingClaim: ''
     ## @param primary.persistence.mountPath The path the volume will be mounted at
     ## Note: useful when using custom PostgreSQL images
     ##
@@ -668,7 +668,7 @@ primary:
     ## @param primary.persistence.subPath The subdirectory of the volume to mount to
     ## Useful in dev environments and one PV for multiple services
     ##
-    subPath: ""
+    subPath: ''
     ## @param primary.persistence.storageClass PVC Storage Class for PostgreSQL Primary data volume
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -676,7 +676,7 @@ primary:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: ''
     ## @param primary.persistence.accessModes PVC Access Mode for PostgreSQL volume
     ##
     accessModes:
@@ -725,7 +725,7 @@ readReplicas:
   ## @param readReplicas.extendedConfiguration Extended PostgreSQL read only replicas configuration (appended to main or default configuration)
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/postgresql#allow-settings-to-be-loaded-from-files-other-than-the-default-postgresqlconf
   ##
-  extendedConfiguration: ""
+  extendedConfiguration: ''
   ## @param readReplicas.extraEnvVars Array with extra environment variables to add to PostgreSQL read only nodes
   ## e.g:
   ## extraEnvVars:
@@ -735,10 +735,10 @@ readReplicas:
   extraEnvVars: []
   ## @param readReplicas.extraEnvVarsCM Name of existing ConfigMap containing extra env vars for PostgreSQL read only nodes
   ##
-  extraEnvVarsCM: ""
+  extraEnvVarsCM: ''
   ## @param readReplicas.extraEnvVarsSecret Name of existing Secret containing extra env vars for PostgreSQL read only nodes
   ##
-  extraEnvVarsSecret: ""
+  extraEnvVarsSecret: ''
   ## @param readReplicas.command Override default container command (useful when using custom images)
   ##
   command: []
@@ -839,9 +839,9 @@ readReplicas:
     readOnlyRootFilesystem: false
     allowPrivilegeEscalation: false
     capabilities:
-      drop: ["ALL"]
+      drop: ['ALL']
     seccompProfile:
-      type: "RuntimeDefault"
+      type: 'RuntimeDefault'
   ## @param readReplicas.hostAliases PostgreSQL read only pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
@@ -867,7 +867,7 @@ readReplicas:
   ## @param readReplicas.podAffinityPreset PostgreSQL read only pod affinity preset. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
-  podAffinityPreset: ""
+  podAffinityPreset: ''
   ## @param readReplicas.podAntiAffinityPreset PostgreSQL read only pod anti-affinity preset. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
@@ -878,12 +878,12 @@ readReplicas:
   nodeAffinityPreset:
     ## @param readReplicas.nodeAffinityPreset.type PostgreSQL read only node affinity preset type. Ignored if `primary.affinity` is set. Allowed values: `soft` or `hard`
     ##
-    type: ""
+    type: ''
     ## @param readReplicas.nodeAffinityPreset.key PostgreSQL read only node label key to match Ignored if `primary.affinity` is set.
     ## E.g.
     ## key: "kubernetes.io/e2e-az-name"
     ##
-    key: ""
+    key: ''
     ## @param readReplicas.nodeAffinityPreset.values PostgreSQL read only node label values to match. Ignored if `primary.affinity` is set.
     ## E.g.
     ## values:
@@ -910,15 +910,15 @@ readReplicas:
   topologySpreadConstraints: []
   ## @param readReplicas.priorityClassName Priority Class to use for each pod (PostgreSQL read only)
   ##
-  priorityClassName: ""
+  priorityClassName: ''
   ## @param readReplicas.schedulerName Use an alternate scheduler, e.g. "stork".
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
   ##
-  schedulerName: ""
+  schedulerName: ''
   ## @param readReplicas.terminationGracePeriodSeconds Seconds PostgreSQL read only pod needs to terminate gracefully
   ## ref: https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
   ##
-  terminationGracePeriodSeconds: ""
+  terminationGracePeriodSeconds: ''
   ## @param readReplicas.updateStrategy.type PostgreSQL read only statefulset strategy type
   ## @param readReplicas.updateStrategy.rollingUpdate PostgreSQL read only statefulset rolling update configuration parameters
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
@@ -971,12 +971,12 @@ readReplicas:
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
     ##
     nodePorts:
-      postgresql: ""
+      postgresql: ''
     ## @param readReplicas.service.clusterIP Static clusterIP or None for headless services
     ## e.g:
     ## clusterIP: None
     ##
-    clusterIP: ""
+    clusterIP: ''
     ## @param readReplicas.service.annotations Annotations for PostgreSQL read only service
     ##
     annotations: {}
@@ -984,7 +984,7 @@ readReplicas:
     ## Set the LoadBalancer service type to internal only
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
     ##
-    loadBalancerIP: ""
+    loadBalancerIP: ''
     ## @param readReplicas.service.externalTrafficPolicy Enable client source IP preservation
     ## ref https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
     ##
@@ -1024,7 +1024,7 @@ readReplicas:
     enabled: true
     ## @param readReplicas.persistence.existingClaim Name of an existing PVC to use
     ##
-    existingClaim: ""
+    existingClaim: ''
     ## @param readReplicas.persistence.mountPath The path the volume will be mounted at
     ## Note: useful when using custom PostgreSQL images
     ##
@@ -1032,7 +1032,7 @@ readReplicas:
     ## @param readReplicas.persistence.subPath The subdirectory of the volume to mount to
     ## Useful in dev environments and one PV for multiple services
     ##
-    subPath: ""
+    subPath: ''
     ## @param readReplicas.persistence.storageClass PVC Storage Class for PostgreSQL read only data volume
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -1040,7 +1040,7 @@ readReplicas:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: ''
     ## @param readReplicas.persistence.accessModes PVC Access Mode for PostgreSQL volume
     ##
     accessModes:
@@ -1077,7 +1077,6 @@ readReplicas:
     ##
     whenDeleted: Retain
 
-
 ## @section Backup parameters
 ## This section implements a trivial logical dump cronjob of the database.
 ## This only comes with the consistency guarantees of the dump program.
@@ -1088,9 +1087,9 @@ backup:
   enabled: false
   cronjob:
     ## @param backup.cronjob.schedule Set the cronjob parameter schedule
-    schedule: "@daily"
+    schedule: '@daily'
     ## @param backup.cronjob.timeZone Set the cronjob parameter timeZone
-    timeZone: ""
+    timeZone: ''
     ## @param backup.cronjob.concurrencyPolicy Set the cronjob parameter concurrencyPolicy
     concurrencyPolicy: Allow
     ## @param backup.cronjob.failedJobsHistoryLimit Set the cronjob parameter failedJobsHistoryLimit
@@ -1098,9 +1097,9 @@ backup:
     ## @param backup.cronjob.successfulJobsHistoryLimit Set the cronjob parameter successfulJobsHistoryLimit
     successfulJobsHistoryLimit: 3
     ## @param backup.cronjob.startingDeadlineSeconds Set the cronjob parameter startingDeadlineSeconds
-    startingDeadlineSeconds: ""
+    startingDeadlineSeconds: ''
     ## @param backup.cronjob.ttlSecondsAfterFinished Set the cronjob parameter ttlSecondsAfterFinished
-    ttlSecondsAfterFinished: ""
+    ttlSecondsAfterFinished: ''
     ## @param backup.cronjob.restartPolicy Set the cronjob parameter restartPolicy
     restartPolicy: OnFailure
     ## @param backup.cronjob.podSecurityContext.enabled Enable PodSecurityContext for CronJob/Backup
@@ -1126,9 +1125,9 @@ backup:
       readOnlyRootFilesystem: false
       allowPrivilegeEscalation: false
       capabilities:
-        drop: ["ALL"]
+        drop: ['ALL']
       seccompProfile:
-        type: "RuntimeDefault"
+        type: 'RuntimeDefault'
     ## @param backup.cronjob.command Set backup container's command to run
     command:
       - /bin/sh
@@ -1147,21 +1146,21 @@ backup:
       ## @param backup.cronjob.storage.existingClaim Provide an existing `PersistentVolumeClaim` (only when `architecture=standalone`)
       ## If defined, PVC must be created manually before volume will be bound
       ##
-      existingClaim: ""
+      existingClaim: ''
       ## @param backup.cronjob.storage.resourcePolicy Setting it to "keep" to avoid removing PVCs during a helm delete operation. Leaving it empty will delete PVCs after the chart deleted
       ##
-      resourcePolicy: ""
+      resourcePolicy: ''
       ## @param backup.cronjob.storage.storageClass PVC Storage Class for the backup data volume
       ## If defined, storageClassName: <storageClass>
       ## If set to "-", storageClassName: "", which disables dynamic provisioning
       ## If undefined (the default) or set to null, no storageClassName spec is
       ## set, choosing the default provisioner.
       ##
-      storageClass: ""
+      storageClass: ''
       ## @param backup.cronjob.storage.accessModes PV Access Mode
       ##
       accessModes:
-       - ReadWriteOnce
+        - ReadWriteOnce
       ## @param backup.cronjob.storage.size PVC Storage Request for the backup data volume
       ##
       size: 8Gi
@@ -1174,7 +1173,7 @@ backup:
       ## @param backup.cronjob.storage.subPath Subdirectory of the volume to mount at
       ## and one PV for multiple services.
       ##
-      subPath: ""
+      subPath: ''
       ## Fine tuning for volumeClaimTemplates
       ##
       volumeClaimTemplates:
@@ -1299,9 +1298,9 @@ volumePermissions:
   ##
   image:
     registry: docker.io
-    repository: bitnami/os-shell
+    repository: bitnamilegacy/os-shell
     tag: 11-debian-11-r91
-    digest: ""
+    digest: ''
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
@@ -1352,7 +1351,7 @@ serviceAccount:
   ## @param serviceAccount.name The name of the ServiceAccount to use.
   ## If not set and create is true, a name is generated using the common.names.fullname template
   ##
-  name: ""
+  name: ''
   ## @param serviceAccount.automountServiceAccountToken Allows auto mount of ServiceAccountToken on the serviceAccount created
   ## Can be set to false if pods using this serviceAccount do not need to use K8s API
   ##
@@ -1400,9 +1399,9 @@ metrics:
   ##
   image:
     registry: docker.io
-    repository: bitnami/postgres-exporter
+    repository: bitnamilegacy/postgres-exporter
     tag: 0.15.0-debian-11-r2
-    digest: ""
+    digest: ''
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
@@ -1459,9 +1458,9 @@ metrics:
     readOnlyRootFilesystem: false
     allowPrivilegeEscalation: false
     capabilities:
-      drop: ["ALL"]
+      drop: ['ALL']
     seccompProfile:
-      type: "RuntimeDefault"
+      type: 'RuntimeDefault'
   ## Configure extra options for PostgreSQL Prometheus exporter containers' liveness, readiness and startup probes
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes
   ## @param metrics.livenessProbe.enabled Enable livenessProbe on PostgreSQL Prometheus exporter containers
@@ -1537,7 +1536,7 @@ metrics:
     ## @param metrics.service.clusterIP Static clusterIP or None for headless services
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#choosing-your-own-ip-address
     ##
-    clusterIP: ""
+    clusterIP: ''
     ## @param metrics.service.sessionAffinity Control where client requests go, to the same pod or round-robin
     ## Values: ClientIP or None
     ## ref: https://kubernetes.io/docs/user-guide/services/
@@ -1546,8 +1545,8 @@ metrics:
     ## @param metrics.service.annotations [object] Annotations for Prometheus to auto-discover the metrics endpoint
     ##
     annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "{{ .Values.metrics.service.ports.metrics }}"
+      prometheus.io/scrape: 'true'
+      prometheus.io/port: '{{ .Values.metrics.service.ports.metrics }}'
   ## Prometheus Operator ServiceMonitor configuration
   ##
   serviceMonitor:
@@ -1556,15 +1555,15 @@ metrics:
     enabled: false
     ## @param metrics.serviceMonitor.namespace Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)
     ##
-    namespace: ""
+    namespace: ''
     ## @param metrics.serviceMonitor.interval Interval at which metrics should be scraped.
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#endpoint
     ##
-    interval: ""
+    interval: ''
     ## @param metrics.serviceMonitor.scrapeTimeout Timeout after which the scrape is ended
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#endpoint
     ##
-    scrapeTimeout: ""
+    scrapeTimeout: ''
     ## @param metrics.serviceMonitor.labels Additional labels that can be used so ServiceMonitor will be discovered by Prometheus
     ##
     labels: {}
@@ -1583,7 +1582,7 @@ metrics:
     honorLabels: false
     ## @param metrics.serviceMonitor.jobLabel The name of the label on the target service to use as the job name in prometheus.
     ##
-    jobLabel: ""
+    jobLabel: ''
   ## Custom PrometheusRule to be defined
   ## The value is evaluated as a template, so, for example, the value can depend on .Release or .Chart
   ## ref: https://github.com/coreos/prometheus-operator#customresourcedefinitions
@@ -1594,7 +1593,7 @@ metrics:
     enabled: false
     ## @param metrics.prometheusRule.namespace Namespace for the PrometheusRule Resource (defaults to the Release Namespace)
     ##
-    namespace: ""
+    namespace: ''
     ## @param metrics.prometheusRule.labels Additional labels that can be used so PrometheusRule will be discovered by Prometheus
     ##
     labels: {}

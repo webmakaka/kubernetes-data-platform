@@ -1,8 +1,8 @@
 defaultAirflowRepository: viet1846/airflow
 
-defaultAirflowTag: "2.8.3"
+defaultAirflowTag: '2.8.3'
 
-airflowVersion: "2.8.3"
+airflowVersion: '2.8.3'
 images:
   airflow:
     pullPolicy: Always
@@ -24,13 +24,13 @@ ingress:
     annotations: {}
 
     # The path for the web Ingress
-    path: "/"
+    path: '/'
 
     # The pathType for the above path (used only with Kubernetes v1.19 and above)
-    pathType: "ImplementationSpecific"
+    pathType: 'ImplementationSpecific'
 
     # The hostname for the web Ingress (Deprecated - renamed to `ingress.web.hosts`)
-    host: "airflow.lakehouse.local"
+    host: 'airflow.lakehouse.local'
 
     # The hostnames or hosts configuration for the web Ingress
     hosts: []
@@ -44,14 +44,14 @@ ingress:
     #     secretName: ""
 
     # The Ingress Class for the web Ingress (used only with Kubernetes v1.19 and above)
-    ingressClassName: "nginx"
+    ingressClassName: 'nginx'
 
     # configs for web Ingress TLS (Deprecated - renamed to `ingress.web.hosts[*].tls`)
     tls:
       # Enable TLS termination for the web Ingress
       enabled: false
       # the name of a pre-created Secret containing a TLS private key and certificate
-      secretName: ""
+      secretName: ''
 
     # HTTP paths to add to the web Ingress before the default path
     precedingPaths: []
@@ -59,7 +59,7 @@ ingress:
     # Http paths to add to the web Ingress after the default path
     succeedingPaths: []
 
-executor: "KubernetesExecutor"
+executor: 'KubernetesExecutor'
 
 extraEnv: |
   - name: AIRFLOW__CORE__DAGS_FOLDER
@@ -170,15 +170,15 @@ postgresql:
   auth:
     enablePostgresUser: true
     postgresPassword: postgres
-    username: "admin"
-    password: "admin"
+    username: 'admin'
+    password: 'admin'
 
 config:
   logging:
-    remote_logging: "True"
-    remote_base_log_folder: "s3://airflow/logs"
-    remote_log_conn_id: "s3_default"
-    encrypt_s3_logs: "False"
+    remote_logging: 'True'
+    remote_base_log_folder: 's3://airflow/logs'
+    remote_log_conn_id: 's3_default'
+    encrypt_s3_logs: 'False'
 # Git sync
 dags:
   gitSync:
@@ -188,7 +188,7 @@ dags:
     branch: main
     rev: HEAD
     depth: 1
-    subPath: "airflow"
+    subPath: 'airflow'
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
