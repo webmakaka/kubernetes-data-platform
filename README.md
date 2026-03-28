@@ -21,9 +21,9 @@
 
 ### [Part 4][Main Components]: Install Hive Metastore, Trino on Kubernetes
 
-### [Part 5.1][Main Components]: Apache Spark with Kubernetes Spark Operator
+### [[Part 5.1][Main Components]: Apache Spark with Kubernetes Spark Operator](https://towardsdev.com/kubernetes-data-platform-part-5-1-main-components-apache-spark-with-kubernetes-spark-operator-0db10a10fa7f)
 
-### [Part 5.2][Main Components]: Apache Spark with Spark Connect Server
+### [[Part 5.2][Main Components]: Apache Spark with Spark Connect Server](https://towardsdev.com/kubernetes-data-platform-part-5-2-main-components-apache-spark-with-spark-connect-server-608861b262ed)
 
 ### [Part 6][Main Components]: Data Orchestrate with Apache Airflow
 
@@ -69,3 +69,12 @@
 |    Argo CD      |               |         Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.          | Not started |
 
 
+
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, big data, golang</a>
