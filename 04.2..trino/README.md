@@ -5,38 +5,9 @@
 **Should be installed already:**
 
 - minio
+- hive metastore
 
 <br/>
-
-## Install Hive Metastore
-
-### hive-metastore-postgresql
-
-https://artifacthub.io/packages/helm/bitnami/postgresql
-
-<br/>
-
-```bash
-$ helm upgrade --install metastore-db -n metastore -f deployment/hive/hive-metastore-postgres-values.yaml ../helm-charts/postgresql-18.5.14/postgresql --create-namespace --debug
-```
-
-<!--
-
-```
---version 15.4.2
-```
-
--->
-
-<br/>
-
-### Hive metastore
-
-```bash
-$ helm upgrade --install hive-metastore -n metastore -f deployment/hive/hive-metastore-values.yaml ../charts/hive-metastore --create-namespace --debug
-```
-
-## Install Trino
 
 ```bash
 $ helm repo add trino https://trinodb.github.io/charts
