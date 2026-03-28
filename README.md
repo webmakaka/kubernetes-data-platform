@@ -72,7 +72,12 @@
 
 **Additional:**
 
+// argo
 https://github.com/viethqb/data-platform-k8s-demo/tree/main
+
+
+// trino + clickhouse
+https://github.com/viethqb/trino-on-kubernetes/
 
 <br/><br/>
 
