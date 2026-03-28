@@ -52,7 +52,7 @@ Access `http://localhost:4040` for Spark-UI and `sc://localhost:15002` for Spark
 - `%SQL` and `%%SQL` magic for executing Spark SQL in IPython/Jupyter
   - SQL statement can be written in multiple lines, support using `;` to separate statements
   - Support config `connect client`, see [Spark Connect Overview](https://spark.apache.org/docs/latest/spark-connect-overview.html#spark-connect-overview)
-  - *TODO: Visualize the result of SQL statement(Spark Dataframe)*
+  - _TODO: Visualize the result of SQL statement(Spark Dataframe)_
 - `sparglim-server` for daemon Spark Connect Server
 
 ## User cases
@@ -200,3 +200,11 @@ pytest -v
 ```
 pytype ./sparglim
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, big data, golang</a>
