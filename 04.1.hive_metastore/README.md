@@ -9,7 +9,7 @@ https://artifacthub.io/packages/helm/bitnami/postgresql
 <br/>
 
 ```bash
-$ helm upgrade --install metastore-db -n metastore -f deployment/hive/hive-metastore-postgres-values.yaml ../helm-charts/postgresql-18.5.14/postgresql --create-namespace --debug
+$ helm upgrade --install metastore-db -n metastore --create-namespace -f deployment/hive/hive-metastore-postgres-values.yaml ../helm-charts/postgresql-18.5.14/postgresql  --debug
 ```
 
 <br/>

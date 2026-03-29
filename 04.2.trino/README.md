@@ -11,6 +11,11 @@
 
 ```bash
 $ helm repo add trino https://trinodb.github.io/charts
+```
+
+<br/>
+
+```bash
 $ helm upgrade --install trino -n trino -f deployment/trino/trino-values.yaml trino/trino --create-namespace --debug --version 0.21.0
 ```
 
