@@ -1,5 +1,7 @@
 ## [Kubernetes Data Platform] Install Minio
 
+<br/>
+
 ```bash
 $ helm repo add minio https://charts.min.io/
 $ helm repo update
@@ -7,12 +9,12 @@ $ helm repo update
 
 <br/>
 
-```
+```bash
 # helm uninstall minio -n minio
 $ helm upgrade --install minio -n minio -f deployment/minio/minio-values.yaml minio/minio --create-namespace --debug --version 5.4.0
-$ kubectl -n minio get po
+$ kubectl -n minio get pods
 
-$ kubectl get no -owide
+$ kubectl get nodes -owide
 NAME              STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
 marley-minikube   Ready    control-plane   19m   v1.35.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   6.5.0-45-generic   docker://29.2.0
 ```
@@ -24,6 +26,16 @@ $ sudo vi /etc/hosts
 192.168.49.2 minio.lakehouse.local
 192.168.49.2 console.minio.lakehouse.local
 ```
+
+<br/>
+
+```
+// OK!
+// admin / password
+http://console.minio.lakehouse.local
+```
+
+<br/>
 
 **Test**
 

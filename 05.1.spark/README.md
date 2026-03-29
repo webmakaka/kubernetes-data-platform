@@ -5,7 +5,14 @@
 ```bash
 $ helm repo add spark-operator https://kubeflow.github.io/spark-operator
 
-$ helm upgrade --install spark-operator spark-operator/spark-operator --namespace spark-operator --set webhook.enable=true --set image.tag=v1beta2-1.4.6-3.5.0 --create-namespace --debug --version 1.3.2
+$ helm upgrade \
+    --install spark-operator spark-operator/spark-operator \
+    --namespace spark-operator \
+    --create-namespace \
+    --set webhook.enable=true \
+    --set image.tag=v1beta2-1.4.6-3.5.0 \
+    --debug \
+    --version 1.3.2
 
 $ kubectl create role spark-operator-submitter --verb=create,get --resource=sparkapplications,pods/log --namespace=spark-operator
 

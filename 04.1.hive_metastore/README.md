@@ -2,7 +2,7 @@
 
 <br/>
 
-### hive-metastore-postgresql
+### Postgresql for Hive metastore
 
 https://artifacthub.io/packages/helm/bitnami/postgresql
 
@@ -17,7 +17,7 @@ $ helm upgrade --install metastore-db -n metastore -f deployment/hive/hive-metas
 ### Hive metastore
 
 ```bash
-$ helm upgrade --install hive-metastore -n metastore -f deployment/hive/hive-metastore-values.yaml ../charts/hive-metastore --create-namespace --debug
+$ helm upgrade --install hive-metastore -n metastore -f deployment/hive/hive-metastore-values.yaml ../helm-charts/hive-metastore --create-namespace --debug
 ```
 
 <br/><br/>
