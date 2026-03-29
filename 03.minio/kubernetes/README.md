@@ -12,6 +12,11 @@ $ helm repo update
 ```bash
 # helm uninstall minio -n minio
 $ helm upgrade --install minio -n minio -f deployment/minio/minio-values.yaml minio/minio --create-namespace --debug --version 5.4.0
+```
+
+<br/>
+
+```
 $ kubectl -n minio get pods
 
 $ kubectl get nodes -owide
