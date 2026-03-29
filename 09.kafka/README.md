@@ -4,7 +4,7 @@
 
 ```bash
 helm repo add strimzi https://strimzi.io/charts/
-helm install kafka-operator strimzi/strimzi-kafka-operator --namespace=kafka --create-namespace --debug --version 0.41.0
+helm install kafka-operator strimzi/strimzi-kafka-operator --namespace=kafka --create-namespace --debug --version 0.44.0
 ```
 
 <br/>
