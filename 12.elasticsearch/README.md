@@ -68,20 +68,36 @@ $ kubectl describe elastic -n elastic
 <br/>
 
 ```
-$ kubectl get secret elastic-es-elastic-user -n elastic -o go-template='{{.data.elastic | base64decode}}'
+$ kubectl get pods -n elastic
+NAME                        READY   STATUS    RESTARTS   AGE
+elastic-es-default-0        1/1     Running   0          100m
+elastic-operator-0          1/1     Running   0          102m
+kibana-kb-87b948855-4rfdg   1/1     Running   0          100m
 ```
 
 <br/>
 
 ```
-$  kubectl get svc -n ela kubectl get svc -n elastic
+$ kubectl get svc -n elastic
 NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-elastic-es-default         ClusterIP   None             <none>        9200/TCP   2m7s
-elastic-es-http            ClusterIP   10.100.212.45    <none>        9200/TCP   2m7s
-elastic-es-internal-http   ClusterIP   10.103.164.143   <none>        9200/TCP   2m7s
-elastic-es-transport       ClusterIP   None             <none>        9300/TCP   2m7s
-elastic-operator-webhook   ClusterIP   10.108.169.53    <none>        443/TCP    16m
-kibana-kb-http             ClusterIP   10.106.120.53    <none>        5601/TCP   119s
+elastic-es-default         ClusterIP   None             <none>        9200/TCP   101m
+elastic-es-http            ClusterIP   10.110.241.94    <none>        9200/TCP   101m
+elastic-es-internal-http   ClusterIP   10.104.35.233    <none>        9200/TCP   101m
+elastic-es-transport       ClusterIP   None             <none>        9300/TCP   101m
+elastic-operator-webhook   ClusterIP   10.105.151.128   <none>        443/TCP    103m
+kibana-kb-http             ClusterIP   10.107.181.144   <none>        5601/TCP   101m
+```
+
+<br/>
+
+```
+$ kubectl port-forward svc/kibana-kb-http 5601:5601 -n elastic
+```
+
+<br/>
+
+```
+$ kubectl get secret elastic-es-elastic-user -n elastic -o go-template='{{.data.elastic | base64decode}}'
 ```
 
 <br/>
@@ -89,7 +105,7 @@ kibana-kb-http             ClusterIP   10.106.120.53    <none>        5601/TCP  
 ```
 // Kibana will not accept regular HTTP protocol connections
 // elastic /
-https://192.168.49.20:5601
+https://localhost:5601
 ```
 
 <br/><br/>
