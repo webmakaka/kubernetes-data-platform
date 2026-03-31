@@ -104,6 +104,7 @@ $ kubectl get secret elastic-es-elastic-user -n elastic -o go-template='{{.data.
 
 ```
 // Kibana will not accept regular HTTP protocol connections
+// OK!
 // elastic /
 https://localhost:5601
 ```
