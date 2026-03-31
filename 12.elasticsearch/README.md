@@ -1,4 +1,4 @@
-## [Test][Kubernetes Data Platform] Install Elasticsearch
+## [Kubernetes Data Platform] Install Elasticsearch
 
 <br/>
 
