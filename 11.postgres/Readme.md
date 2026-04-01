@@ -63,7 +63,7 @@ $ kubectl create secret generic postgres-db-secret \
 <br/>
 
 ```yaml
-$ cat <<EOF > postgres-values.yaml
+$ cat << EOF | kubectl apply -f -
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
@@ -78,17 +78,10 @@ spec:
       owner: postgres_user
       secret:
         name: postgres-db-secret
-
   storage:
     size: 5Gi
     storageClass: standard
 EOF
-```
-
-<br/>
-
-```
-$ kubectl apply -f postgres-values.yaml
 ```
 
 <br/>
