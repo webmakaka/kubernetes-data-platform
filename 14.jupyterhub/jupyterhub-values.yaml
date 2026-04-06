@@ -1,0 +1,11 @@
+singleuser:
+  image:
+    name: jupyter/scipy-notebook # Образ с JupyterLab
+    tag: latest
+  defaultUrl: "/lab" # Включает JupyterLab по умолчанию вместо классического Notebook
+  storage:
+    dynamic:
+      storageClass: standard # Класс для автоматического создания дисков (PVC)
+  memory:
+    limit: 2G
+    guarantee: 1G
