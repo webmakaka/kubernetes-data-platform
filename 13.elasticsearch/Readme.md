@@ -19,20 +19,20 @@ https://artifacthub.io/packages/helm/elastic/eck-operator/2.12.1
 
 <br/>
 
-```
+```shell
 $ helm install elastic-operator ../helm-charts/eck-operator-2.12.1/eck-operator -n elastic --create-namespace
 ```
 
 <br/>
 
-```
+```shell
 $ kubectl apply -f deployment/elastic_cluster.yaml -n elastic
 $ kubectl apply -f deployment/kibana.yaml -n elastic
 ```
 
 <br/>
 
-```
+```shell
 $ kubectl get pods -n elastic
 NAME                        READY   STATUS    RESTARTS   AGE
 elastic-es-default-0        1/1     Running   0          39s
@@ -42,7 +42,7 @@ kibana-kb-54c4648c8-6cgv6   1/1     Running   0          30s
 
 <br/>
 
-```
+```shell
 $ kubectl get elastic -n elastic
 NAME                                                 HEALTH   NODES   VERSION   PHASE   AGE
 elasticsearch.elasticsearch.k8s.elastic.co/elastic   green    1       8.13.0    Ready   60s
@@ -53,7 +53,7 @@ kibana.kibana.k8s.elastic.co/kibana   green    1       8.13.0    53s
 
 <br/>
 
-```
+```shell
 $ kubectl get elasticsearch -n elastic
 NAME      HEALTH   NODES   VERSION   PHASE   AGE
 elastic   green    1       8.13.0    Ready   77s
@@ -61,13 +61,13 @@ elastic   green    1       8.13.0    Ready   77s
 
 <br/>
 
-```
+```shell
 $ kubectl describe elastic -n elastic
 ```
 
 <br/>
 
-```
+```shell
 $ kubectl get pods -n elastic
 NAME                        READY   STATUS    RESTARTS   AGE
 elastic-es-default-0        1/1     Running   0          100m
@@ -77,7 +77,7 @@ kibana-kb-87b948855-4rfdg   1/1     Running   0          100m
 
 <br/>
 
-```
+```shell
 $ kubectl get svc -n elastic
 NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
 elastic-es-default         ClusterIP   None             <none>        9200/TCP   101m
@@ -90,13 +90,13 @@ kibana-kb-http             ClusterIP   10.107.181.144   <none>        5601/TCP  
 
 <br/>
 
-```
+```shell
 $ kubectl port-forward svc/kibana-kb-http 5601:5601 -n elastic
 ```
 
 <br/>
 
-```
+```shell
 $ kubectl get secret elastic-es-elastic-user -n elastic -o go-template='{{.data.elastic | base64decode}}'
 ```
 
